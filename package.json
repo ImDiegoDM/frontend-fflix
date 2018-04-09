@@ -1,9 +1,11 @@
 {
   "name": "frontend-fflix",
   "version": "1.0.0",
-  "description": "Front end for netflix like project",
-  "main": "index.js",
+  "description": "",
+  "main": "webpack.config.js",
   "scripts": {
+    "dev": "webpack-dev-server",
+    "build":"webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,14 +19,26 @@
   },
   "homepage": "https://github.com/ImDiegoDM/frontend-fflix#readme",
   "dependencies": {
-    "@types/react": "^16.3.5",
-    "@types/react-dom": "^16.0.4",
+    "axios": "^0.12.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-add-module-exports": "^0.1.2",
+    "babel-plugin-react-html-attrs": "^2.0.0",
+    "babel-plugin-transform-class-properties": "^6.3.13",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
     "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "react-dom": "^16.3.1",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "webpack": "^4.5.0",
+    "webpack-dev-server": "^3.1.3"
   },
   "devDependencies": {
-    "awesome-typescript-loader": "^5.0.0",
-    "source-map-loader": "^0.2.3",
-    "typescript": "^2.8.1"
+    "webpack-cli": "^2.0.14"
   }
 }
