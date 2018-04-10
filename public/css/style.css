@@ -1,6 +1,10 @@
-html,body,#app,.home{
+html,body,#app,.home,.root,.login{
   font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
   height: 100%;
+}
+
+a{
+  text-decoration: none !important;
 }
 
 .home .signIn{
@@ -31,8 +35,47 @@ html,body,#app,.home{
   left: 20px;
 }
 
+.login .logo{
+  font-size: 60px;
+  line-height: 60px;
+  font-weight: bold;
+  color: red;
+  padding: 15px;
+  display: inline-block;
+}
+
+.btn.btn-primary{
+  background-color: red;
+  border: none;
+}
+
+.login .logo:hover{
+  text-decoration: none !important;
+}
+
+.login .logo span{
+
+}
+
 .home .header{
   background-image: url('../imgs/netflixbg.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+.login .header .loginBox{
+  width: 460px;
+  margin: auto;
+  padding: 40px;
+  background-color: #f3f3f3;
+}
+
+.login .header{
+  background-image: url('../imgs/loginbg.jpg');
   background-size: cover;
   background-position: center;
   height: 100%;

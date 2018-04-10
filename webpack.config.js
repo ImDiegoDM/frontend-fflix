@@ -16,10 +16,12 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, './public'),
-        filename: 'bundle.min.js'
+        filename: 'bundle.min.js',
+        publicPath: '/'
     },
     devServer: {
       inline: true,
-      contentBase: './public'
+      contentBase: './public',
+      historyApiFallback: true
     }
 }

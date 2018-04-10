@@ -1,6 +1,6 @@
 
 let userDefault={
-  name:'Diego'
+  name:''
 }
 
 export default function reducer(state=userDefault,action){
