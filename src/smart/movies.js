@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import MoviesUi from '../dumb/moviesUi';
+import {MoviesUi} from '../dumb/moviesUi';
 import { api } from '../env';
 import { isAuth } from '../helpers/auth';
 import history from '../history';
@@ -18,21 +18,22 @@ export default class Movie extends React.Component{
     }
     axios.defaults.headers.common['Authorization'] = user.token;
     this.getMovies();
+    console.log(this.props);
   }
   getMovies(){
     this.props.dispatch({type:"FETCH_MOVIES_START"});
     axios.get(api+'/movies').then((response)=>{
-      console.log(response);
-    }).catch(()=>{
+      this.props.dispatch({type:"FETCHED_MOVIES",payload:response.data});
+    }).catch((error)=>{
+      console.log(error);
       history.push('./login');
+      this.props.dispatch({type:"FETCHED_MOVIES_ERROR"});
     })
   }
-  separeteByCategori(){
-    
-  }
+
   render(){
     return(
-      <MoviesUi/>
+      <MoviesUi moviesByCategori={this.props.movies.moviesByCategorie}/>
     )
   }
 }

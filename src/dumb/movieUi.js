@@ -1,15 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ImageFilter from './imageFilter';
+import { url } from '../env';
+
 
 function ListButton(props) {
   if(props.addToMylist){
     return(
-      <i class="fa fa-plus-circle" style={{fontSize:'30px'}}aria-hidden="true"></i>
+      <i class="fa fa-plus-circle" style={{...props.style,fontSize:'30px'}}aria-hidden="true"></i>
     )
   }
   return(
-    <i class="fa fa-check-circle-o" style={{fontSize:'30px'}}aria-hidden="true"></i>
+    <i class="fa fa-check-circle-o" style={{...props.style,fontSize:'30px'}}aria-hidden="true"></i>
   )
 }
 
@@ -44,19 +46,20 @@ export default class MovieUi extends React.Component{
       backgroundPosition:'center',
       cursor:'pointer',
       position:'relative',
+      border:'1px solid black',
       margin:(this.props.marginY ? this.props.marginY : 0)+'px '+(this.props.marginX ? this.props.marginX : 0)+'px '
     }
 
     if(this.state.hover){
       return {...baseStyle,
         width:(this.props.width)+'px',
-        backgroundImage:"url('../imgs/netflixbg.jpg')",
+        backgroundImage:"url('"+url+'/images/'+this.props.movie.sampleImage+"')",
         height:'170%'
       }
     }
     return {...baseStyle,
       width:(this.props.width-this.props.width/3)+'px',
-      backgroundImage:"url('../imgs/loginbg.jpg')",
+      backgroundImage:"url('"+url+'/images/'+this.props.movie.coverImage+"')",
       height:'100%'
     }
   }
@@ -68,10 +71,10 @@ export default class MovieUi extends React.Component{
         <ImageFilter style={{transition:'all '+(this.state.expanded ? 1.5 : .2)+'s',opacity:(this.state.expanded ? 1 : 0)}}/>
         <div style={{position:'absolute',bottom:'0',color:'white',paddingLeft:'5px',display:'flex',flexWrap:'wrap',width:'100%'}}>
           <div style={{width:'92%'}}>
-            <p style={{transition:'all '+(this.state.expanded ? 1.5 : .2)+'s',opacity:(this.state.expanded ? 1 : 0),margin:'3px',fontSize:'18px'}}>{this.props.title || 'title'}</p>
+            <p style={{transition:'all '+(this.state.expanded ? 1.5 : .2)+'s',opacity:(this.state.expanded ? 1 : 0),margin:'3px',fontSize:'18px'}}>{this.props.movie.name}</p>
             <p style={{transition:'all '+(this.state.expanded ? 1.5 : .2)+'s',opacity:(this.state.expanded ? 1 : 0),fontSize:'13px',margin:'0'}}>{this.props.description || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'}</p>
           </div>
-          <div style={{width:'8%',display:'flex',alignItems:'center'}}><ListButton addToMylist={this.props.addToMylist}/></div>
+          <div style={{width:'8%',display:'flex',alignItems:'center'}}><ListButton style={{transition:'all '+(this.state.expanded ? 1.5 : .2)+'s',opacity:(this.state.expanded ? 1 : 0)}} addToMylist={this.props.addToMylist}/></div>
         </div>
       </div>
     )
