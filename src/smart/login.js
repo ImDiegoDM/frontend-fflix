@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LoginUI from '../dumb/loginUI';
 import axios from 'axios';
-import { api } from '../env'
+import { api } from '../env';
+import { setCookie } from '../helpers/cookie';
+import history from '../history';
 
 @connect((store)=>{return{login:store.login}})
 export default class Login extends React.Component{
@@ -22,7 +24,13 @@ export default class Login extends React.Component{
     this.props.dispatch({type:"LOGIN_START"});
     axios.post(api+'/login',{ login: this.props.login.email,password: this.props.login.password }).then((response)=>{
       this.props.dispatch({type:"LOGIN_SUCESS"});
-    }).catch(()=>{
+      setCookie('token',response.data.token,15);
+      setCookie('name',response.data.user.name,15);
+      setCookie('email',response.data.user.email,15);
+      setCookie('login',response.data.user.login,15);
+      history.push('./movies');
+    }).catch((error)=>{
+      console.log(error);
       this.props.dispatch({type:"LOGIN_ERROR"});
     });
   }

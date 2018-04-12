@@ -1,4 +1,4 @@
-html,body,#app,.home,.root,.login{
+html,body,#app,.home,.root,.login,.movie{
   font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
   height: 100%;
 }
@@ -22,6 +22,27 @@ a{
   top:0;
   right: 0;
 }
+
+.movie{
+  background-color: #141414;
+  overflow-x: hidden;
+}
+
+.movie .section h6{
+  color: white;
+}
+
+.section .movies{
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  height: 130px;
+}
+
+.movieInfo{
+  /* background-color: red; */
+  height: 100%;
+}
+
 
 .home .logo{
   font-size: 60px;
