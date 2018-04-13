@@ -28,6 +28,11 @@ export default class LoginUI extends React.Component{
             <label for="exampleInputEmail1">Senha</label>
             <input onChange={this.props.handlePasswordChange} type="password" class="form-control"  />
             <Submit submit={this.props.submit} logging={this.props.logging}/>
+            <div class="mt-3">
+              <Link to="/register" >
+                <span >ainda não é cadastrado?</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
