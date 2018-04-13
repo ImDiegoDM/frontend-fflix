@@ -9,10 +9,9 @@ function Submit(props) {
   }
 }
 
-export default class LoginUI extends React.Component{
-
+export default class RegisterUi extends React.Component{
   render(){
-    return (
+    return(
       <div class="login">
       <div class="header">
         <div class="">
@@ -21,10 +20,14 @@ export default class LoginUI extends React.Component{
           </Link>
         </div>
         <div class="loginBox">
-          <h1>Entrar</h1>
+          <h1>Cadastrar</h1>
           <div>
+            <label for="exampleInputEmail1">Nome</label>
+            <input onChange={this.props.handleNameChange} type="text" class="form-control"/>
             <label for="exampleInputEmail1">Email</label>
             <input onChange={this.props.handleEmailChange} type="email" class="form-control"/>
+            <label for="exampleInputEmail1">Login</label>
+            <input onChange={this.props.handleLoginChange} type="email" class="form-control"/>
             <label for="exampleInputEmail1">Senha</label>
             <input onChange={this.props.handlePasswordChange} type="password" class="form-control"  />
             <Submit submit={this.props.submit} logging={this.props.logging}/>

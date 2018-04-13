@@ -10,16 +10,16 @@ let loginDefault={
 
 export default function reducer(state=loginDefault,action){
   switch (action.type) {
-    case "CHANGE_EMAIL":
+    case "LOGIN_CHANGE_EMAIL":
       state = {...state, email:action.payload};
       break;
-    case "CHANGE_PASSWORD":
+    case "LOGIN_CHANGE_PASSWORD":
       state = {...state, password:action.payload};
       break;
-    case "LOGIN_START":
+    case "LOGIN_LOGIN_START":
       state = {...state, logging:true};
       break;
-    case "CHANGE_REMEBER":
+    case "LOGIN_CHANGE_REMEBER":
       state = {...state,remeber:action.payload};
       break;
     case "LOGIN_ERROR":

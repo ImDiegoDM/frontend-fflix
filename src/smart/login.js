@@ -11,13 +11,11 @@ import history from '../history';
 export default class Login extends React.Component{
 
   handleEmailChange(event){
-    console.log(this.props);
-    this.props.dispatch({type:"CHANGE_EMAIL",payload:event.target.value});
+    this.props.dispatch({type:"LOGIN_CHANGE_EMAIL",payload:event.target.value});
   }
 
   handlePasswordChange(event){
-    console.log(this.props);
-    this.props.dispatch({type:"CHANGE_PASSWORD",payload:event.target.value});
+    this.props.dispatch({type:"LOGIN_CHANGE_PASSWORD",payload:event.target.value});
   }
 
   tryLogin(){
